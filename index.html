@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="images/cerlogo.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
     <style>
@@ -53,6 +54,45 @@
 .hidden {
   display: none;
 }
+.rainbow-text {
+  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 6s linear infinite;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Optional for nav links to look cleaner */
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+/* Animation keyframes */
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.rainbow-text {
+  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 6s linear infinite;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Keyframe animation */
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
     </style>
 
@@ -70,19 +110,21 @@
 </div>
 
 
-  <header>
-    <h1>HUNTR/X</h1>
-    <nav>
-      <a href="#members">Members</a>
-      <a href="#songs">Songs</a>
-      <a href="#movie">About Movie</a>
-    </nav>
-  </header>
+ <header>
+  <h1 class="rainbow-text">HUNTR/X</h1>
+  <nav>
+    <a href="#members" class="rainbow-text">Members</a>
+    <a href="#songs" class="rainbow-text">Songs</a>
+    <a href="#movie" class="rainbow-text">About Movie</a>
+  </nav>
+</header>
 
-  <section id="hero">
-    <h2>Welcome to the Unofficial HUNTR/X Fan Page</h2>
-    <p>By day, idols. By night, demon hunters. 🎤🔥</p>
-  </section>
+
+ <section id="hero">
+  <h2 class="rainbow-text">Welcome to the Unofficial HUNTR/X Fan Page</h2>
+  <p class="rainbow-text">By day, idols. By night, demon hunters. 🎤🔥</p>
+</section>
+
 <section id="members">
   <center><h2>Members</h2></center>
   <div class="cards">
@@ -224,17 +266,106 @@
 
 
 
-
 <section id="songs">
-  <center><h2>Songs</h2></center>
-  <center><p>Click to play</p></center>
-  <ul id="song-list">
-    <li data-src="songs/golden.mp3"><i class="fa-solid fa-music"></i> Golden</li>
-    <li data-src="songs/how_its_done.mp3"><i class="fa-solid fa-music"></i> How It's Done</li>
-    <li data-src="songs/takedown.mp3"><i class="fa-solid fa-music"></i> Takedown</li>
-    <li data-src="songs/what_it_sounds_like.mp3"><i class="fa-solid fa-music"></i> What it sounds like</li>
-  </ul>
+  <div class="songs-container">
+    <h2 class="rainbow-text">🎵 Songs</h2>
+    <p class="subtext">Click a song to play</p>
+    
+    <ul id="song-list" class="song-list">
+      <li data-src="songs/golden.mp3">
+        <i class="fa-solid fa-music"></i> Golden
+      </li>
+      <li data-src="songs/how_its_done.mp3">
+        <i class="fa-solid fa-music"></i> How It's Done
+      </li>
+      <li data-src="songs/takedown.mp3">
+        <i class="fa-solid fa-music"></i> Takedown
+      </li>
+      <li data-src="songs/what_it_sounds_like.mp3">
+        <i class="fa-solid fa-music"></i> What It Sounds Like
+      </li>
+    </ul>
+  </div>
 </section>
+
+<style>
+  #songs {
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.songs-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.subtext {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-list li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.song-list li:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.02);
+}
+
+.song-list i {
+  color: #ffd700;
+  animation: pulseNote 2s infinite;
+}
+
+/* Optional music note pulse */
+@keyframes pulseNote {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* Reuse this if you’ve already added it */
+.rainbow-text {
+  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 6s linear infinite;
+  font-weight: bold;
+  display: inline-block;
+}
+
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+</style>
 
 
 <!-- 🎧 Modal Music Player -->
@@ -245,13 +376,23 @@
     <!-- 🎤 Group Cover Image -->
     <img id="cover-image" src="images/huntrix.jpeg" alt="HUNTR/X Cover" />
 
-    <p id="now-playing">Now Playing: —</p>
-    <audio id="audio" controls></audio>
+<p id="now-playing" class="rainbow-text">Now Playing: —</p>
+    <audio id="audio" controls hidden></audio>
+
     <div class="controls">
-      <button id="prev">⏮️</button>
-      <button id="play">▶️</button>
-      <button id="pause">⏸️</button>
-      <button id="next">⏭️</button>
+      
+      <button id="prev" class="control-btn" title="Previous">
+        <i class="bi bi-skip-backward-fill"></i>
+      </button>
+      <button id="play" class="control-btn" title="Play">
+        <i class="bi bi-play-fill"></i>
+      </button>
+      <button id="pause" class="control-btn" title="Pause">
+        <i class="bi bi-pause-fill"></i>
+      </button>
+      <button id="next" class="control-btn" title="Next">
+        <i class="bi bi-skip-forward-fill"></i>
+      </button>
     </div>
   </div>
 </div>
@@ -263,18 +404,61 @@
   <p><strong>K-Pop Demon Hunters</strong> (2025) is an animated Netflix film about a girl group who slay demons with the power of music while maintaining their K-pop idol image. Starring voice talents Arden Cho, May Hong, Ji-young Yoo, and songs performed by EJAE, Audrey Nuna, and Rei Ami.</p>
 
   <div class="video-wrapper">
-    <video id="trailer" width="100%" height="auto" muted playsinline>
-      <source src="videos/trailer.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+  <video id="trailer" width="100%" height="auto" muted playsinline>
+    <source src="videos/trailer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 <center>
   <!-- 🎬 Watch Now Button -->
   <div class="watch-now-container">
     <a href="https://moviebox.ng/movies/kpop-demon-hunters-aHJ0ChGCdI5?id=4795103281850766056&scene=&page_from=search_detail&type=/movie/detail" target="_blank" class="watch-now-btn">🎬 Watch Now</a>
   </div></center>
 </section>
+<style>
+  .video-wrapper {
+  position: relative;
+  padding: 5px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 30px auto;
+  max-width: 800px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
 
+/* Glowing animated border using ::before */
+.video-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #ff00cc, #00ffff, #ffcc00, #ff00cc);
+  background-size: 400% 400%;
+  animation: borderRainbow 8s linear infinite;
+  border-radius: 18px;
+}
+
+/* Optional: make sure video is full width inside wrapper */
+.video-wrapper video {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+@keyframes borderRainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.video-wrapper:hover video {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+</style>
 
   <footer>
     <p>&copy; 2025 HUNTR/X Fan Site | Made with ❤️ by Fans</p>
