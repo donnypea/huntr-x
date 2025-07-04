@@ -1,0 +1,187 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #111; /* or any background */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #ff00aa;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ff66cc;
+  font-weight: bold;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#hero {
+  text-align: center;
+  background: linear-gradient(to right, #ff00aa, #6600ff);
+  padding: 50px 20px;
+  width: 100%;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background: #2a2a2a;
+  border-radius: 10px;
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* portrait ratio (change as needed) */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Song List */
+#song-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+#song-list li {
+  padding: 10px;
+  cursor: pointer;
+  background: #2a2a2a;
+  margin: 10px auto;
+  max-width: 300px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+#song-list li:hover {
+  background: #444;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  color: #fff;
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.controls button {
+  margin: 0 10px;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  background: #ff00aa;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: #e60099;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+
+
+/* ✅ Make the layout responsive on small screens */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%; /* fills most of mobile width */
+  }
+}
+
+
+
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}

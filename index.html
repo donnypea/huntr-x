@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HUNTR/X - Fan Page</title>
+  <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="members.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/cerlogo.png">
+
+
+    <style>
+        /* Welcome Modal Styling */
+.welcome-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.welcome-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px 40px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+
+.welcome-content button {
+  margin-top: 20px;
+  background: #ff00aa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+    </style>
+
+  
+
+
+</head>
+<body>
+
+    <div id="welcome-modal" class="welcome-modal hidden">
+  <div class="welcome-content">
+    <p>👨‍💻 Developed by <strong>Donny</strong></p>
+    <button id="close-welcome">OK</button>
+  </div>
+</div>
+
+
+  <header>
+    <h1>HUNTR/X</h1>
+    <nav>
+      <a href="#members">Members</a>
+      <a href="#songs">Songs</a>
+      <a href="#movie">About Movie</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h2>Welcome to the Unofficial HUNTR/X Fan Page</h2>
+    <p>By day, idols. By night, demon hunters. 🎤🔥</p>
+  </section>
+<section id="members">
+  <center><h2>Members</h2></center>
+  <div class="cards">
+    <div class="card" data-name="Rumi" data-role="Leader, Main Vocal" data-img="images/rumi.webp" data-bio="Rumi is the group's leader and powerhouse vocalist, known for her strong leadership and emotional voice.">
+      <img src="images/rumi.webp" alt="Rumi">
+      <h3>Rumi</h3>
+      <p>Leader, Main Vocal</p>
+    </div>
+    <div class="card" data-name="Mira" data-role="Main Dancer, Visual" data-img="images/mira.jpeg" data-bio="Mira is the main dancer and visual of the group, praised for her stage charisma and elegance.">
+      <img src="images/mira.jpeg" alt="Mira">
+      <h3>Mira</h3>
+      <p>Main Dancer, Visual</p>
+    </div>
+    <div class="card" data-name="Zoey" data-role="Main Rapper, Maknae" data-img="images/zoey.jpeg" data-bio="Zoey is the youngest member and the main rapper, known for her swag and playful energy.">
+      <img src="images/zoey.jpeg" alt="Zoey">
+      <h3>Zoey</h3>
+      <p>Main Rapper, Maknae</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 🌟 Member Modal -->
+<div id="memberModal" class="member-modal">
+  <div class="member-modal-content">
+    <span class="member-close">&times;</span>
+    <button id="prevMember" class="arrow left-arrow">⟵</button>
+    <button id="nextMember" class="arrow right-arrow">⟶</button>
+
+    <div class="modal-body">
+      <div class="modal-left">
+        <img id="modal-img" src="" alt="Member Image" />
+      </div>
+      <div class="modal-right">
+        <h3 id="modal-name">Name</h3>
+        <p id="modal-role">Role</p>
+        <p id="modal-bio">Biography or info goes here...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+    /* Unique modal styling */
+.member-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.member-modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  margin: auto;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+  position: relative;
+  color: #fff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.modal-left img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.modal-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.member-close {
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.member-close:hover {
+  color: red;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+}
+.left-arrow {
+  left: 15px;
+}
+.right-arrow {
+  right: 15px;
+}
+
+.video-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+</style>
+
+
+
+
+
+<section id="songs">
+  <center><h2>Songs</h2></center>
+  <center><p>Click to play</p></center>
+  <ul id="song-list">
+    <li data-src="songs/golden.mp3"><i class="fa-solid fa-music"></i> Golden</li>
+    <li data-src="songs/how_its_done.mp3"><i class="fa-solid fa-music"></i> How It's Done</li>
+    <li data-src="songs/takedown.mp3"><i class="fa-solid fa-music"></i> Takedown</li>
+    <li data-src="songs/what_it_sounds_like.mp3"><i class="fa-solid fa-music"></i> What it sounds like</li>
+  </ul>
+</section>
+
+
+<!-- 🎧 Modal Music Player -->
+<div id="music-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <!-- 🎤 Group Cover Image -->
+    <img id="cover-image" src="images/huntrix.jpeg" alt="HUNTR/X Cover" />
+
+    <p id="now-playing">Now Playing: —</p>
+    <audio id="audio" controls></audio>
+    <div class="controls">
+      <button id="prev">⏮️</button>
+      <button id="play">▶️</button>
+      <button id="pause">⏸️</button>
+      <button id="next">⏭️</button>
+    </div>
+  </div>
+</div>
+
+
+ 
+<section id="movie">
+  <center><h2>About the Movie</h2></center>
+  <p><strong>K-Pop Demon Hunters</strong> (2025) is an animated Netflix film about a girl group who slay demons with the power of music while maintaining their K-pop idol image. Starring voice talents Arden Cho, May Hong, Ji-young Yoo, and songs performed by EJAE, Audrey Nuna, and Rei Ami.</p>
+
+  <div class="video-wrapper">
+    <video id="trailer" width="100%" height="auto" muted playsinline>
+      <source src="videos/trailer.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+<center>
+  <!-- 🎬 Watch Now Button -->
+  <div class="watch-now-container">
+    <a href="https://moviebox.ng/movies/kpop-demon-hunters-aHJ0ChGCdI5?id=4795103281850766056&scene=&page_from=search_detail&type=/movie/detail" target="_blank" class="watch-now-btn">🎬 Watch Now</a>
+  </div></center>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 HUNTR/X Fan Site | Made with ❤️ by Fans</p>
+  </footer>
+   <script src="script.js">
+    
+  </script>
+<script>
+  const members = [
+    {
+      name: "Rumi",
+      role: "Leader, Main Vocal",
+      bio: "Rumi is the group's leader and powerhouse vocalist, known for her strong leadership and emotional voice.",
+      img: "images/rumi.webp"
+    },
+    {
+      name: "Mira",
+      role: "Main Dancer, Visual",
+      bio: "Mira is the main dancer and visual of the group, praised for her stage charisma and elegance.",
+      img: "images/mira.jpeg"
+    },
+    {
+      name: "Zoey",
+      role: "Main Rapper, Maknae",
+      bio: "Zoey is the youngest member and the main rapper, known for her swag and playful energy.",
+      img: "images/zoey.jpeg"
+    }
+  ];
+
+  let currentMemberIndex = 0;
+
+  const memberModal = document.getElementById("memberModal");
+  const memberImg = document.getElementById("modal-img");
+  const memberName = document.getElementById("modal-name");
+  const memberRole = document.getElementById("modal-role");
+  const memberBio = document.getElementById("modal-bio");
+  const closeMemberModal = document.querySelector(".member-close");
+  const prevMemberBtn = document.getElementById("prevMember");
+  const nextMemberBtn = document.getElementById("nextMember");
+
+  function showMember(index) {
+    const member = members[index];
+    memberImg.src = member.img;
+    memberName.textContent = member.name;
+    memberRole.textContent = member.role;
+    memberBio.textContent = member.bio;
+  }
+
+  document.querySelectorAll(".card").forEach((card, index) => {
+    card.addEventListener("click", () => {
+      currentMemberIndex = index;
+      showMember(currentMemberIndex);
+      memberModal.style.display = "block";
+    });
+  });
+
+  prevMemberBtn.onclick = () => {
+    currentMemberIndex = (currentMemberIndex - 1 + members.length) % members.length;
+    showMember(currentMemberIndex);
+  };
+
+  nextMemberBtn.onclick = () => {
+    currentMemberIndex = (currentMemberIndex + 1) % members.length;
+    showMember(currentMemberIndex);
+  };
+
+  closeMemberModal.onclick = () => memberModal.style.display = "none";
+
+  window.addEventListener("click", (e) => {
+    if (e.target === memberModal) {
+      memberModal.style.display = "none";
+    }
+  });
+
+
+
+  // 🎬 Autoplay trailer when section is visible
+const movieSection = document.getElementById('movie');
+const trailer = document.getElementById('trailer');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      trailer.play();
+    }
+  });
+}, { threshold: 0.5 });
+
+observer.observe(movieSection);
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hasVisited = localStorage.getItem('hasVisited');
+  const welcomeModal = document.getElementById('welcome-modal');
+  const closeBtn = document.getElementById('close-welcome');
+
+  if (!hasVisited) {
+    welcomeModal.classList.remove('hidden'); // Show modal
+    localStorage.setItem('hasVisited', 'true'); // Mark as visited
+  }
+
+  closeBtn.addEventListener('click', () => {
+    welcomeModal.classList.add('hidden'); // Hide on OK
+  });
+});
+
+</script>
+
+
+
+
+
+</body>
+</html>
